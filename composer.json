@@ -1,0 +1,32 @@
+{
+    "name": "bragg-about-systems/bas-inception",
+    "description": "Zend Framework 2 Module that generates your Doctrine Entities based on PHP arrays.",
+    "type": "library",
+    "keywords": [
+        "module",
+        "zf2",
+        "doctrine",
+        "doctrine orm"
+    ],
+    "homepage": "http://www.github.com/bragg-about-systems/bas-inception/",
+    "authors": [
+        {
+            "name": "Spencer Bragg",
+            "email": "sbragg.braggaboutsystems@gmail.com",
+            "homepage": "http://www.braggaboutsystems.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.1.x-dev"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Inception": "src/"
+        },
+        "classmap": [
+            "./"
+        ]
+    }
+}
