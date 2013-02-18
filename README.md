@@ -1,4 +1,4 @@
-# ZfcRbac Module for Zend Framework 2 [![Master Branch Build Status](https://secure.travis-ci.org/ZF-Commons/ZfcRbac.png?branch=master)](http://travis-ci.org/ZF-Commons/ZfcRbac)
+#  bas-inception (Inception) Module for Zend Framework 2
 
 bas-inception is a module for Zend Framework 2 geared towards quick & easy Doctrine Entity generation. This module is already pre-configured and should only need calling the service and passing in your php array.
 
