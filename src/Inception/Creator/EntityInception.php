@@ -137,7 +137,7 @@ class EntityInception implements InceptionInterface {
         $this->inception_factory  = $factory;
 
         $this->metadata_inspector = $this->em->getMetadataFactory();
-        $this->entity_builder     = $this->sm->get('EntityBuilder');
+        $this->entity_builder     = $this->sm->get('entity.builder');
         
     }
 

@@ -4,62 +4,49 @@ return array(
     
     'factories' => array(
          
-        'InceptionArrayCollection' => function($sm) {
-            $inception_array_collection = new Creator\InceptionArrayCollection($sm);
+        'inception.array.collection' => function($sm) {
+            $inception_array_collection = new Inception\Creator\InceptionArrayCollection($sm);
             return $inception_array_collection;
         }, 
 
         'inception.creator' => function($sm) {
-            $factory = $sm->get('InceptionFactory');    
-            $creator = new Creator($sm, $factory);
+            $factory = $sm->get('inception.factory');    
+            $creator = new Inception\Creator($sm, $factory);
 
             return $creator;
         },
 
-        'InceptionEntityReference' => function($sm) {
+        'inception.entity.reference' => function($sm) {
             $em = $sm->get('doctrine.entitymanager.orm_default');
-            $inception_reference = new Creator\InceptionEntityReference($sm, $em);
+            $inception_reference = new Inception\Creator\InceptionEntityReference($sm, $em);
             return $inception_reference;
         },
 
-        'EntityInception' => function($sm) {
+        'entity.inception' => function($sm) {
             $em       = $sm->get('doctrine.entitymanager.orm_default');
             $factory  = $sm->get('InceptionFactory');
-            $creator  = new Creator\EntityInception($sm, $em, $factory);
+            $creator  = new Inception\Creator\EntityInception($sm, $em, $factory);
             return $creator;
         },
 
-        'InceptionFactory' => function($sm) {
-            $factory = new Creator\Factories\InceptionFactory($sm); 
+        'inception.factory' => function($sm) {
+            $factory = new Inception\Creator\Factories\InceptionFactory($sm); 
             return $factory;
         },
 
-        'DuplicateLeadConfig' => function($sm) {
-            $config = new \Zend\Config\Config(array(), true);
-            $config->resources = array();
-            //$config->resources->leadPurpose = array('\Entities\Vamclo\LeadPurpose' => 'leadPurposeId');
-            $config->resources->cities      = array('\Entities\Bas\Cities' => 'cityId');
-            //$config->resources->statuses    = array('\Entities\Vamclo\Statuses' => 'statusId');
-            // $config->resources->sites       = array('\Entities\Vamclo\Sites' => 'siteId');
-            // $config->resources->tracking    = array('\Entities\Vamclo\Tracking' => 'siteId');
-            // $config->resources->divisions   = array('\Entities\Vamclo\Divisions' => 4); 
-
-            return $config;
-        },
-   
     ),
 
     'invokables' => array(
         'ArrayCollection' => 'Doctrine\Common\Collections\ArrayCollection',
-        'EntityBuilder'   => 'Inception\Services\EntityBuilder'
+        'entity.builder'   => 'Inception\Services\EntityBuilder'
     ),
 
     'shared' => array(
 
-        'EntityBuilder'            => false,
-        'InceptionArrayCollection' => false,
-        'inception.creator'         => false,
-        'EntityInception'          => false
+        'entity.builder'              => false,
+        'inception.array.collection'  => false,
+        'inception.creator'           => false,
+        'entity.inception'            => false
     ),
 
     

@@ -58,7 +58,7 @@ class InceptionArrayCollection implements InceptionInterface {
 
     public function __construct($sm) {
         $this->sm             = $sm;
-        $this->entity_builder = $this->sm->get('EntityBuilder');
+        $this->entity_builder = $this->sm->get('entity.builder');
     }
 
     public function initialize($data_array, $parent) {
@@ -152,7 +152,7 @@ class InceptionArrayCollection implements InceptionInterface {
 
     protected function buildArrayCollection() {
 
-        $array_collection      = $this->sm->get('ArrayCollection');
+        $array_collection      = $this->sm->get('array.collection');
         $array_collection_data = $this->getEntityData();
         $parents_array         = $this->getNeedsParentsArray();
 
