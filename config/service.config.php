@@ -4,19 +4,12 @@ return array(
     
     'factories' => array(
          
-        'BasInception' => function($sm) {
-
-            $inception = $sm->get('inception.creator');
-
-            return $inception;
-        },
-
         'InceptionArrayCollection' => function($sm) {
             $inception_array_collection = new Creator\InceptionArrayCollection($sm);
             return $inception_array_collection;
         }, 
 
-        'inception.creator' => function($sm) {
+        'InceptionCreator' => function($sm) {
             $factory = $sm->get('InceptionFactory');    
             $creator = new Creator($sm, $factory);
 
@@ -65,7 +58,7 @@ return array(
 
         'EntityBuilder'            => false,
         'InceptionArrayCollection' => false,
-        'InceptionCreator'         => false,
+        'inception.creator'         => false,
         'EntityInception'          => false
     ),
 
