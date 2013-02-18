@@ -22,7 +22,7 @@ class Module
      * {@inheritDoc}
      */
     public function getServiceConfig() {
-        return include __DIR__ . '/config/services.config.php';
+        return include __DIR__ . '/config/service.config.php';
     }
 
 }

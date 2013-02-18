@@ -9,7 +9,7 @@ return array(
             return $inception_array_collection;
         }, 
 
-        'InceptionCreator' => function($sm) {
+        'inception.creator' => function($sm) {
             $factory = $sm->get('InceptionFactory');    
             $creator = new Creator($sm, $factory);
 
