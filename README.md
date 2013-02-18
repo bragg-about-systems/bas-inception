@@ -33,3 +33,24 @@ Installation of bas-inception uses composer. For composer documentation, please 
      ```php
      'Inception',
      ```
+
+#### Service Locator  (Actual the only usage you need)
+To access the inception creator, use the service locator:
+
+```php
+// for example, in a controller:
+$inception = $this->getServiceLocator()->get('inception.creator');
+
+// example of data that is used to populate your entities
+$data = array('contactInfo' => 
+                  array('contactInfoId' => 4478657, 
+                        'firstName'     => 'mega', 
+                        'lastName'      => 'man', 
+                        'address'       => '465465465', 
+                        'zip'           => 65202, 
+                        'email'         => 'meep@lol.com', 
+                        'overseas'      => 'not answered', 
+                        
+                        'cities' => array ( 'cityId' => 5533, 'cityName' => 'columbia', 'county' => 'boone', 'countyId' => 473, 'latitude' => 38, 'longitude' => -92, ), 'phoneNumbers' => array ( 0 => array ( 'phoneNumberId' => 5774480, 'phoneNumberType' => 'not given', 'phoneNumber' => '6547984652', 'phoneOrder' => 'primary', 'bestTime' => '', 'goodNumber' => 1, ), 1 => array ( 'phoneNumberId' => 0, 'phoneNumberType' => 'not given', 'phoneNumber' => '2564897456', 'phoneOrder' => 'cell', 'bestTime' => '', 'goodNumber' => 1, ), ), 'financialInfo' => array ( 'financialInfoId' => 3667432, 'creditRating' => '', 'grossIncome' => 0, 'bankruptcy' => '', 'totalAssets' => 0, 'latePayments' => false, 'monthlyDebtPayment' => 0, 'currentRate' => '0.0000', 'homeOwner' => false, 'occupationalStatus' => 'Employed', 'otherLatePayments' => '0', 'denyReason' => 'not_denied', 'denyNote' => 1, 'mortgagePayments' => false, 'bIncome' => 0, 'cbIncome' => 0, 'rateTrigger' => '0.0000', 'pulledCredit' => 'unknown', 'renting' => 0, ), ), )
+```
+
