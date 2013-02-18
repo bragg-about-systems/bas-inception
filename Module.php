@@ -3,8 +3,7 @@ namespace Inception;
 
 class Module
 {
-    public function getAutoloaderConfig()
-    {
+    public function getAutoloaderConfig() {
         return array(
             
             'Zend\Loader\StandardAutoloader' => array(
@@ -15,17 +14,15 @@ class Module
         );
     }
 
-    public function getConfig()
-    {
+    public function getConfig() {
         return include __DIR__ . '/config/module.config.php';
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getServiceConfig()
-    {
-        return include __DIR__ . '/../../config/services.config.php';
+    public function getServiceConfig() {
+        return include __DIR__ . '/config/services.config.php';
     }
 
 }
