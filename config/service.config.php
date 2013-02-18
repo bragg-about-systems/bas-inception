@@ -24,7 +24,7 @@ return array(
 
         'entity.inception' => function($sm) {
             $em       = $sm->get('doctrine.entitymanager.orm_default');
-            $factory  = $sm->get('InceptionFactory');
+            $factory  = $sm->get('inception.factory');
             $creator  = new Inception\Creator\EntityInception($sm, $em, $factory);
             return $creator;
         },
@@ -37,7 +37,7 @@ return array(
     ),
 
     'invokables' => array(
-        'ArrayCollection' => 'Doctrine\Common\Collections\ArrayCollection',
+        'array.collection' => 'Doctrine\Common\Collections\ArrayCollection',
         'entity.builder'   => 'Inception\Services\EntityBuilder'
     ),
 
