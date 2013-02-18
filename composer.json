@@ -18,12 +18,14 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zendframework": "2.1.x-dev"
+        "zendframework/zendframework": "2.1.x-dev",
+        "doctrine/doctrine-module"    : "0.7.*",
+        "doctrine/doctrine-orm-module": "dev-master"
     },
 
     "autoload": {
         "psr-0": {
-            "Inception": "src/"
+            "Inception": "bas-inception/src/"
         },
         "classmap": [
             "./"
