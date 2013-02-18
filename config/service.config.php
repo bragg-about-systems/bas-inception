@@ -2,15 +2,11 @@
 
 return array(
     
-    'aliases' => array(
-        'BasInception' => 'bas.inception',
-    ),
-
     'factories' => array(
          
         'BasInception' => function($sm) {
 
-            $inception = $sm->get('InceptionCreator');
+            $inception = $sm->get('inception.creator');
 
             return $inception;
         },
@@ -20,7 +16,7 @@ return array(
             return $inception_array_collection;
         }, 
 
-        'InceptionCreator' => function($sm) {
+        'inception.creator' => function($sm) {
             $factory = $sm->get('InceptionFactory');    
             $creator = new Creator($sm, $factory);
 
