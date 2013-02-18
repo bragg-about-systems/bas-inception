@@ -15,7 +15,7 @@ class InceptionFactory {
 
 	public function createEntityInception(array $data_array, $parent = null, array $config = array()) {
 		
-		$inception   = $this->sm->get('EntityInception');
+		$inception   = $this->sm->get('entity.inception');
 		$creation    = $inception->initialize($data_array, $parent, $config);
 
 		return $creation;
@@ -23,7 +23,7 @@ class InceptionFactory {
 
 	public function createInceptionArrayCollection(array $data_array, InceptionInterface $parent) {
 
-		$inception_array_collection = $this->sm->get('InceptionArrayCollection');
+		$inception_array_collection = $this->sm->get('inception.array.collection');
 
 		$inception_array_collection->initialize($data_array, $parent);
 
@@ -31,7 +31,7 @@ class InceptionFactory {
 	}
 
 	public function createInceptionEntityReference(array $data_array, array $reference) {
-		$inception_reference = $this->sm->get('InceptionEntityReference');
+		$inception_reference = $this->sm->get('inception.entity.reference');
 
 		$inception_reference->initialize($data_array, $reference);
 
