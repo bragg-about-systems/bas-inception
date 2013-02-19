@@ -52,6 +52,8 @@ $data = array('contactInfo' => // array keys represent your entities
                       'email'         => 'meep@lol.com', 
                       'overseas'      => 'not answered', 
                       
+                      // In this example I use this as a Doctrine reference
+                      //$this->entityManager->getReference('Doctrine\Entity', 5533);
                       'cities'        => array('cityId'    => 5533, 
                                                'cityName'  => 'columbia', 
                                                'county'    => 'boone', 
@@ -60,12 +62,15 @@ $data = array('contactInfo' => // array keys represent your entities
                                                'longitude' => -92, 
                                           ), 
 
+                      // Phone Numbers is an Array Collection there is nothing extra you have to do 
+                      // in order to create an Array Collection besides setting 
+                      // new ArrayCollection() in your entity class
                       'phoneNumbers' => array(
-                                          array('phoneNumberId' => 5774480, 
+                                          array('phoneNumberId'   => 5774480, 
                                                 'phoneNumberType' => 'not given', 
-                                                'phoneNumber' => '6547984652', 
-                                                'phoneOrder' => 'primary', 
-                                                'bestTime' => '', 
+                                                'phoneNumber'     => '6547984652', 
+                                                'phoneOrder'      => 'primary', 
+                                                'bestTime'        => '', 
                                                 'goodNumber' => 1, 
                                               ),
                                           array('phoneNumberId' => 0, 
