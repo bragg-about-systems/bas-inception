@@ -35,12 +35,8 @@ Installation of bas-inception uses composer. For composer documentation, please 
      ```
 
 #### Basic Usage  (Actually the only usage you need -- its that simple!)
-To access the inception creator, use the service locator:
 
 ```php
-// for example, in a controller:
-$inception = $this->getServiceLocator()->get('inception.creator');
-
 // example of data that is used to populate your entities
               
 // array keys represent your entities, the ServiceManager needs to be able to instantiate them
@@ -121,5 +117,29 @@ In this example I am using a key to have the value replaced from my data array a
 $config = array('resources' => 
                   array('cities' => array('\\Entities\\Bas\\Cities' => 'cityId') 
           );
-```          
+```
+To access the inception creator, use the service locator:
+```php
+
+// for example, in a controller:
+$inception = $this->getServiceLocator()->get('inception.creator');
+
+// Pass in your data array and your config array into initialize method
+// It will return an EntityInception object to be able to inspect the objects values. 
+$entity_inception = $inception->initialize($data, $config);
+
+// To get your entities just call getEntity()
+$entities = $entity_inception->getEntity();
+
+// If you dump your entities to the screen you will see your entities
+// built with array collections, associations, and doctrine references
+var_dump($entities);die();
+
+//  Next all you need to do is persist and flush
+$this->entity_manager->persist($entities);
+$this->entity_manager->flush(); 
+
+
+
+
 
