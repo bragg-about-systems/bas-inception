@@ -124,8 +124,8 @@ To access the inception creator, use the service locator:
 // for example, in a controller:
 $inception = $this->getServiceLocator()->get('inception.creator');
 
-// Pass in your data array and your config array into initialize method
-// It will return an EntityInception object to be able to inspect the objects values. 
+// Pass in your data array and your config array into the initialize method
+// It will return an EntityInception object to be able to inspect the object values. 
 $entity_inception = $inception->initialize($data, $config);
 
 // To get your entities just call getEntity()
