@@ -42,8 +42,8 @@ To access the inception creator, use the service locator:
 $inception = $this->getServiceLocator()->get('inception.creator');
 
 // example of data that is used to populate your entities
-$data = array('contactInfo' => 
-                  array('contactInfoId' => 4478657, 
+$data = array('contactInfo' => // array keys represent your entities 
+                  array('contactInfoId' => 4478657, // array values represent an array to populate your entity with
                         'firstName'     => 'mega', 
                         'lastName'      => 'man', 
                         'address'       => '465465465', 
