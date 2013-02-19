@@ -34,7 +34,7 @@ Installation of bas-inception uses composer. For composer documentation, please 
      'Inception',
      ```
 
-#### Service Locator  (Actual the only usage you need)
+#### Basic Usage  (Actually the only usage you need -- its that simple!)
 To access the inception creator, use the service locator:
 
 ```php
