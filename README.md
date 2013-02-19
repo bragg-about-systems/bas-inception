@@ -42,7 +42,11 @@ To access the inception creator, use the service locator:
 $inception = $this->getServiceLocator()->get('inception.creator');
 
 // example of data that is used to populate your entities
-$data = array('contactInfo' => // array keys represent your entities 
+              
+// array keys represent your entities, the ServiceManager needs to be able to instantiate them
+// $this->sm->get('ContactInfo'); It assumes your using PascalCase
+$data = array('contactInfo' => 
+
                 // array values represent an array to populate your entity with
                 array('contactInfoId' => 4478657, 
                       'firstName'     => 'mega', 
@@ -64,7 +68,7 @@ $data = array('contactInfo' => // array keys represent your entities
 
                       // Phone Numbers is an Array Collection there is nothing extra you have to do 
                       // in order to create an Array Collection besides setting 
-                      // new ArrayCollection() in your entity class
+                      // new ArrayCollection() in the constructor of your entity class
                       'phoneNumbers' => array(
                                           array('phoneNumberId'   => 5774480, 
                                                 'phoneNumberType' => 'not given', 
