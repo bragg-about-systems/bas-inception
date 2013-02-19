@@ -44,7 +44,7 @@ $inception = $this->getServiceLocator()->get('inception.creator');
 // example of data that is used to populate your entities
               
 // array keys represent your entities, the ServiceManager needs to be able to instantiate them
-// $this->sm->get('ContactInfo'); It assumes your using PascalCase
+// $this->sm->get('ContactInfo'); It assumes your using PascalCase (may change later)
 $data = array('contactInfo' => 
 
                 // array values represent an array to populate your entity with
@@ -109,4 +109,17 @@ $data = array('contactInfo' =>
                       ), 
         )
 ```
+In order to use a Doctrine reference you need to create an array with the references you 
+want Doctrine to create.  Use a key called 'resources' to pass in your references. 
+References can either use an Integer as the value or a key from your data array if the 
+value is unknown at the time.
+
+In this example I am using a key to have the value replaced from my data array above.
+
+```php
+
+$config = array('resources' => 
+                  array('cities' => array('\\Entities\\Bas\\Cities' => 'cityId') 
+          );
+```          
 
