@@ -9,6 +9,7 @@
         "doctrine orm"
     ],
     "homepage": "http://www.github.com/bragg-about-systems/bas-inception/",
+    
     "authors": [
         {
             "name": "Spencer Bragg",
@@ -16,6 +17,12 @@
             "homepage": "http://www.braggaboutsystems.com/"
         }
     ],
+
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "phake/phake"    : "v1.0.3"
+    },
+    
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.1.x-dev",
