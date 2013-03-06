@@ -2,7 +2,8 @@
 
 namespace Inception\Factories;
 
-use Phake;
+use Phake,
+	Inception\InceptionTestCase;
 
 class InceptionFactoryTest extends InceptionTestCase {
 

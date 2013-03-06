@@ -8,16 +8,12 @@ if (file_exists('../vendor/autoload.php')) {
     
     $loader = include '../vendor/autoload.php';
 
-} else if (file_exists('../../../autoload.php')) {
-    
-    $loader = include '../../../autoload.php';
-
 } else {
 	
     throw new RuntimeException('vendor/autoload.php could not be found. Did you run `php composer.phar install`?');
 }
 
-$loader->add('InceptionTest', __DIR__);
+$loader->add('Entities', __DIR__);
 
 
 
