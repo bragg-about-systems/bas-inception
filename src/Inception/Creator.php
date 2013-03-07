@@ -3,16 +3,10 @@ namespace Inception;
 
 class Creator {
 	
-  protected $sm;
-
   protected $inception_factory;
 
-  protected $entities;
-  
-  public function __construct($sm, $factory) {
-      $this->sm                = $sm;
+  public function __construct($factory) {
       $this->inception_factory = $factory;
-
   } 
 
   public function initialize(array $data_array, array $config = array()) {
