@@ -11,7 +11,7 @@ return array(
 
         'inception.creator' => function($sm) {
             $factory = $sm->get('inception.factory');    
-            $creator = new Inception\Creator($sm, $factory);
+            $creator = new Inception\Creator($factory);
 
             return $creator;
         },
