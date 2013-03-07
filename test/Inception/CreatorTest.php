@@ -7,31 +7,33 @@ use Phake,
 
 class CreatorTest extends InceptionTestCase {
 
+    protected $inceptionCreator;
+
+    protected $inceptionFactory;
+
+    protected $entityInception;
+    
+    public function setUp() {
+        $this->inceptionCreator = $this->getInceptionCreator();
+        $this->inceptionFactory = $this->getInceptionFactory();
+        $this->entityInception  = $this->getEntityInception();
+    }
 
     public function testFoo(){
     	$expected = "foo";
     	$data = array('HERE IS MY Data');
-		Phake::when($this->inception_factory)->createEntityInception($data, null, $this->anything())->thenReturn($expected);
+		Phake::when($this->inceptionFactory)->createEntityInception($data, null, $this->anything())->thenReturn($expected);
 
-		$actual = $this->inception_creator->initialize($data);
+		$actual = $this->inceptionCreator->initialize($data);
 
 		$this->assertSame($expected, $actual);
     }
 
     public function testInitializeReturnsRightTypeObject() {
 
-    	$data_array = array('cities' => array ( 
-						  		'cityId'    => 5533, 
-						  		'cityName'  => 'columbia', 
-						  		'county'    => 'boone', 
-						  		'countyId'  => 473, 
-						  		'latitude'  => 38, 
-						  		'longitude' => -92, 
-		  				));
+    	Phake::when($this->inceptionFactory)->createEntityInception($this->anything(), null, $this->anything())->thenReturn($this->entityInception);
 
-    	Phake::when($this->inception_factory)->createEntityInception($this->anything(), null, $this->anything())->thenReturn($this->entity_inception);
-
-    	$actual_entity_inception = $this->inception_creator->initialize(array());
+    	$actual_entity_inception = $this->inceptionCreator->initialize(array());
     	
     	$this->assertInstanceOf('Inception\Creator\EntityInception', $actual_entity_inception);
     	

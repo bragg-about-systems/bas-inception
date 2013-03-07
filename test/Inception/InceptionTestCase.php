@@ -3,6 +3,7 @@ namespace Inception;
 
 use Phake;
 use Inception\Creator;
+use Inception\Creator\EntityInception;
 use Inception\Creator\Factories\InceptionFactory;
 use PHPUnit_Framework_TestCase;
 
@@ -34,14 +35,14 @@ class InceptionTestCase extends PHPUnit_Framework_TestCase {
      */
     private static $entityManager;
 
-    public function setUp() {
-    	
-    	self::setEntityManager(Phake::mock('Doctrine\ORM\EntityManager'));
+    public function __construct() {
+
+        self::setEntityManager(Phake::mock('Doctrine\ORM\EntityManager'));
         self::setServiceManager(Phake::mock('Zend\ServiceManager\ServiceManager'));
         self::setInceptionFactory(Phake::mock('Inception\Creator\Factories\InceptionFactory'));
         
-        self::setInceptionCreator(new Creator(self::$serviceManager, self::$inceptionFactory));
-        self::setEntityInception(new Creator\EntityInception(self::$serviceManager, self::$entityManager, self::$inceptionFactory));
+        self::setInceptionCreator(new Creator(self::$inceptionFactory));
+        self::setEntityInception(new Creator\EntityInception(self::$serviceManager, self::$entityManager, self::$inceptionFactory));   
     }
 
     /**
@@ -68,7 +69,7 @@ class InceptionTestCase extends PHPUnit_Framework_TestCase {
     /**
      * @param \Inception\Creator
      */
-    public static function setInceptionCreator(InceptionCreator $inceptionCreator) {
+    public static function setInceptionCreator(Creator $inceptionCreator) {
         self::$inceptionCreator = $inceptionCreator;
     }
 
