@@ -7,21 +7,6 @@ use Phake,
 
 class CreatorTest extends InceptionTestCase {
 
-	protected $em;
-
-    protected $sm;
-
-    protected $inception_factory;
-
-    public function setUp() {
-    	$this->em                = Phake::mock('Doctrine\ORM\EntityManager');
-        $this->sm                = Phake::mock('Zend\ServiceManager\ServiceManager');
-        $this->inception_factory = Phake::mock('Inception\Creator\Factories\InceptionFactory');
-        
-        $this->inception_creator = new Creator($this->sm, $this->inception_factory);
-        $this->entity_inception  = new Creator\EntityInception($this->sm, $this->em, $this->factory);
-
-    }
 
     public function testFoo(){
     	$expected = "foo";
@@ -46,7 +31,7 @@ class CreatorTest extends InceptionTestCase {
 
     	Phake::when($this->inception_factory)->createEntityInception($this->anything(), null, $this->anything())->thenReturn($this->entity_inception);
 
-    	$actual_entity_inception = $this->inception_creator->initialize($data_array);
+    	$actual_entity_inception = $this->inception_creator->initialize(array());
     	
     	$this->assertInstanceOf('Inception\Creator\EntityInception', $actual_entity_inception);
     	
